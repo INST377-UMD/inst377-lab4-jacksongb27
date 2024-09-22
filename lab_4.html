@@ -1,5 +1,81 @@
 <html>
+    <head>
+        <title> INST377 - Lab 4 </title>
+        <style>
+            section {
+                border: 5px solid black;
+                margin: 15px;
+                padding: 15px;
+            }
+        </style>
+    </head>
     <body>
-        <h1>Hi</h1>
+        <h1 id= "page_heading">INST377 - Lab 4 </h1>
+
+    <section>
+        <form id="alertme_form">
+            <input type="text" id="name_input" placeholder ="Enter your name" required>
+            <button type="submit">Alert Me</button>
+        </form>
+    </section>
+    <script type="text/javascript">
+        document.getElementById('alertme_form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name_input').value;
+            alert ('Hi ' + name + '!')
+        });
+    </script>
+
+
+
+    <section>
+        <button onclick="change_color()">Change Color</button>
+    </section>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            set_initial_color();
+        });
+        function set_initial_color() {
+            document.body.style.backgroundColor = 'red';
+        }
+        function change_color() {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'red' ? 'green' : 'red';
+        }
+    </script>
+
+
+
+    <section>
+        <form id="text_form">
+            <input type="text" id="text_input" placeholder = "Enter desired text">
+            <button type="submit">Validate Text</button>
+        </form>
+    </section>
+    <script type = 'text/javascript'>
+        document.getElementById('text_form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const input = document.getElementById('text_input').value;
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(input)) {
+                alert('This text contains special characters!');
+            } else {
+                alert('The text is valid!');
+            }
+        });
+    </script>
+
+
+
+
+    <section>
+        <button onclick="add_text()">ADD TEXT</button>
+    </section>
+    <script type="text/javascript">
+        function add_text() {
+            const heading = document.getElementById('page_heading')
+            heading.textContent += ' Add Text';
+        }
+    </script>
+
     </body>
 </html>
